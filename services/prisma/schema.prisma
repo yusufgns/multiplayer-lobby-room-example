@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id        String   @id @default(cuid())
+  sessionId String   @unique
+  name      String
+  color     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  lobbies Lobby[] @relation("LobbyPlayers")
+  rooms   Room[]  @relation("RoomPlayers")
+}
+
+model Lobby {
+  id         String   @id @default(cuid())
+  name       String
+  maxPlayers Int
+  isActive   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  
+  // Relations
+  players Profile[] @relation("LobbyPlayers")
+  room    Room?
+}
+
+model Room {
+  id        String   @id @default(cuid())
+  lobbyId   String   @unique
+  gameState String?  // JSON string
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  lobby   Lobby    @relation(fields: [lobbyId], references: [id])
+  players Profile[] @relation("RoomPlayers")
+}
