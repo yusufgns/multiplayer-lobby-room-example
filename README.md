@@ -14,7 +14,7 @@ A real-time multiplayer lobby and room system built with Next.js, Fastify, tRPC,
 
 ```
 multiplayer-lobby-room-example/
-├── services/          # Backend server (Fastify + tRPC)
+├── service/          # Backend server (Fastify + tRPC)
 ├── ui/               # Frontend (Next.js)
 └── README.md
 ```
@@ -30,9 +30,9 @@ NEXT_PUBLIC_API_URL=http://localhost:3001/trpc
 NEXT_PUBLIC_WS_URL=ws://localhost:3001/ws
 ```
 
-### Backend (services/.env)
+### Backend (service/.env)
 
-Create a `.env` file in the `services` directory:
+Create a `.env` file in the `service` directory:
 
 ```env
 PORT=3001
@@ -44,9 +44,9 @@ DATABASE_URL="file:./dev.db"
 
 ### Backend
 
-1. Navigate to the services directory:
+1. Navigate to the service directory:
    ```bash
-   cd services
+   cd service
    ```
 
 2. Install dependencies:
