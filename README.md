@@ -15,15 +15,15 @@ A real-time multiplayer lobby and room system built with Next.js, Fastify, tRPC,
 ```
 multiplayer-lobby-room-example/
 ├── service/          # Backend server (Fastify + tRPC)
-├── ui/               # Frontend (Next.js)
+├── frontend/               # Frontend (Next.js)
 └── README.md
 ```
 
 ## Environment Variables
 
-### Frontend (ui/.env.local)
+### Frontend (frontend/.env.local)
 
-Create a `.env.local` file in the `ui` directory:
+Create a `.env.local` file in the `frontend` directory:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3001/trpc
@@ -69,9 +69,9 @@ The backend will run on `http://localhost:3001`
 
 ### Frontend
 
-1. Navigate to the ui directory:
+1. Navigate to the frontend directory:
    ```bash
-   cd ui
+   cd frontend
    ```
 
 2. Install dependencies:
